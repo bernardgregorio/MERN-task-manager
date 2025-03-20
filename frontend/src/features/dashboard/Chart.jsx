@@ -43,7 +43,7 @@ export default function Chart() {
                 <PieChart
                   series={[
                     {
-                      data: context.taskData.priorities,
+                      data: context.taskData.priorities || [],
                       arcLabel: getArcLabel,
                     },
                   ]}
