@@ -7,20 +7,21 @@ const Footer = () => {
       sx={{
         width: "100%",
         textAlign: "center",
-        padding: "16px",
+        padding: "20px",
         backgroundColor: "#FFFFFF",
         color: "#000000",
-        borderTop: "1px solid #ddd",
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        zIndex: 1200,
+        borderTop: "1px solid #dddddd78",
+        // position: "fixed",
+        // bottom: 0,
+        // left: 0,
+        // zIndex: 1200,
       }}
     >
       <Typography variant="body2">
-        Task Manager <strong>created by</strong>{" "}
-        <strong style={{ color: "#1976d2" }}>ISKRIPT</strong>. All Rights
-        Reserved. © {new Date().getFullYear()}
+        Task Management System <strong>created by </strong>
+        <strong style={{ color: "#545454" }}>BERNAR</strong>
+        <strong style={{ color: "#004aad" }}>DEV</strong>. All Rights Reserved.
+        © {new Date().getFullYear()}
       </Typography>
     </Box>
   );

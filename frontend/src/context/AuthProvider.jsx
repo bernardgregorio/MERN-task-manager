@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
 import { createContext, useState } from "react";
 
 const AuthContext = createContext({});
 
-// eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
 
@@ -14,3 +14,7 @@ const AuthProvider = ({ children }) => {
 };
 
 export { AuthContext, AuthProvider };
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

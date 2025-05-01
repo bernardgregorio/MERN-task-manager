@@ -51,18 +51,26 @@ const Register = () => {
       component="main"
       className="w-full min-h-screen flex flex-col items-center justify-center font-roboto bg-[#fafbfc]"
     >
+      <Box className="mb-10">
+        <img src="/images/bernardev.png" alt="" className="m-2" />
+      </Box>
+
       <Paper elevation={3}>
         <Box
           component="section"
-          className="w-100 min-h-96 px-6 pt-2 pb-12  bg-white"
+          className="w-120 min-h-120 px-6 pt-2 pb-12  bg-white"
         >
-          <Box display="flex" justifyContent="center">
-            <img src="/images/iskript.png" alt="" className="m-2" />
+          <Box
+            display="flex"
+            justifyContent="center"
+            className="text-2xl font-bold mb-8 mt-8"
+          >
+            Task Management System
           </Box>
 
           {!success ? (
             <>
-              <h1 className="text-2xl font-medium text-center">
+              <h1 className="text-xl font-medium text-center">
                 Create an account
               </h1>
               <p className="text-md text-center mb-8 mt-4 text-sm">

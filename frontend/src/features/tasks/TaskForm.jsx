@@ -92,7 +92,7 @@ const TaskForm = () => {
       <Dialog
         open={context.openForm}
         onClose={context.handleCloseForm}
-        maxWidth="sm"
+        maxWidth="lg"
       >
         <DialogTitle>
           {context.cat == "update" ? "Update Task" : "Create Task"}

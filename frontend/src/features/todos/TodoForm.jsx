@@ -86,7 +86,11 @@ const TodoForm = () => {
 
   return (
     <Box>
-      <Dialog open={context.openForm} onClose={context.handleCloseForm}>
+      <Dialog
+        open={context.openForm}
+        onClose={context.handleCloseForm}
+        maxWidth="lg"
+      >
         <DialogTitle>
           {context.cat === "create" ? "Create Todo" : "Update Todo"}
         </DialogTitle>

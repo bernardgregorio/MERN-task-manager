@@ -12,6 +12,7 @@ function Layout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [drawerWidth, setDrawerWidth] = useState(280);
+  const [sideBarTitle, setSideBarTitle] = useState("Task Management System");
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -27,7 +28,13 @@ function Layout() {
       setDrawerWidth(280);
       setMobileOpen(!mobileOpen);
     } else {
-      setDrawerWidth(drawerWidth === 280 ? 60 : 280);
+      if (drawerWidth === 280) {
+        setDrawerWidth(60);
+        setSideBarTitle("TMS");
+      } else {
+        setDrawerWidth(280);
+        setSideBarTitle("Task Management System");
+      }
     }
   };
 
@@ -49,24 +56,26 @@ function Layout() {
           handleDrawerClose={handleDrawerClose}
           handleDrawerTransitionEnd={handleDrawerTransitionEnd}
           drawerWidth={drawerWidth}
+          sideBarTitle={sideBarTitle}
         />
 
+        {/* main content */}
         <Box
           component="main"
           sx={{
             flexGrow: 1,
-            p: 2,
             width: { sm: `calc(100% - ${drawerWidth}px)` },
-            pb: 10,
           }}
         >
           <Toolbar />
-          <Outlet />
-          <Toolbar />
-        </Box>
+          <Box sx={{ p: 2, minHeight: "calc(100vh - 128px)" }}>
+            <Outlet />
+          </Box>
+          {/* <Toolbar /> */}
 
-        {/* footer */}
-        <Footer />
+          {/* footer */}
+          <Footer />
+        </Box>
       </Box>
     </Box>
   );

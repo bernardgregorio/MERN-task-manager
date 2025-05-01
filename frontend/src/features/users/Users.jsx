@@ -37,13 +37,11 @@ const Users = () => {
   const { openDialog, ConfirmDialogComponent } = useConfirmDialog();
   const [boardList, setBoardList] = useState([]);
 
-  const {
-    data: users,
-    isError,
-    error,
-    isLoading,
-    isSuccess,
-  } = useFetchUsersQuery({ page, limit: pageLimit, search });
+  const { data, isError, error, isLoading, isSuccess } = useFetchUsersQuery({
+    page,
+    limit: pageLimit,
+    search,
+  });
   const [createNewUser] = useCreateUserMutation();
   const [patchUser] = usePatchUserMutation();
   const [deleteUser] = useDeleteUserMutation();
@@ -137,7 +135,7 @@ const Users = () => {
   };
 
   const context = {
-    data: isSuccess ? users : [],
+    data: isSuccess ? data : [],
     isSuccess,
     statuses: isStatusSuccess ? statuses : [],
     titles: isTitleSuccess ? titles : [],

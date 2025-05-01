@@ -19,6 +19,7 @@ const Sidebar = ({
   handleDrawerClose,
   handleDrawerTransitionEnd,
   drawerWidth,
+  sideBarTitle,
 }) => {
   const menu = [
     { name: "Dashboard", icon: <DashboardIcon />, link: "/" },
@@ -29,9 +30,13 @@ const Sidebar = ({
 
   const drawer = (
     <Box>
-      <Toolbar>
-        <Typography variant="h6" noWrap>
-          Task Manager
+      <Toolbar style={drawerWidth === 60 ? { paddingLeft: "9px" } : {}}>
+        <Typography noWrap>
+          <Box
+            className={`text-lg font-bold ${drawerWidth === 60 ? "text-[12px]" : ""}`}
+          >
+            {sideBarTitle}
+          </Box>
         </Typography>
       </Toolbar>
 
@@ -44,7 +49,12 @@ const Sidebar = ({
               >
                 {item.icon}
               </ListItemIcon>
-              {drawerWidth !== 60 && <ListItemText primary={item.name} />}
+              {drawerWidth !== 60 && (
+                <ListItemText
+                  primary={item.name}
+                  sx={{ "& .MuiTypography-root": { fontSize: "1rem" } }} // Override font size here
+                />
+              )}
             </ListItemButton>
           </ListItem>
         ))}
@@ -87,6 +97,7 @@ const Sidebar = ({
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,
+            borderRight: "1px solid #dddddd78",
           },
         }}
         open
@@ -104,4 +115,5 @@ Sidebar.propTypes = {
   handleDrawerClose: PropTypes.func.isRequired,
   handleDrawerTransitionEnd: PropTypes.func.isRequired,
   drawerWidth: PropTypes.number,
+  sideBarTitle: PropTypes.string.isRequired,
 };
