@@ -21,5 +21,10 @@ Thumbs.db
 
 
 frontend/Dockerfile
+frontend/docker-compose.yml
+frontend/vite.config.js
 backend/Dockerfile
+backend/docker-compose.yml
+backend/config/corsOption.js
+backend/utils/cookieUtils.js
 backend/.env

@@ -1,10 +1,10 @@
 import passport from "passport";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+
 import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
 import dotenv from "dotenv";
 import UserService from "../services/UserService.js";
 
-dotenv.config({ path: "/usr/src/app/backend/.env" });
+dotenv.config();
 
 // JWT Access Token Strategy
 const accessTokenOptions = {

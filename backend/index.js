@@ -43,5 +43,5 @@ app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
   logger.info(`Server running on:`);
-  logger.info(`- Local: http://localhost:${process.env.PORT}`);
+  logger.info(`- Local: ${process.env.PORT}`);
 });
