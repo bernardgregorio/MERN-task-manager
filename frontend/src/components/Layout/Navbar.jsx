@@ -126,7 +126,7 @@ const Navbar = ({ handleDrawerToggle, drawerWidth }) => {
           transformOrigin={{ horizontal: "right", vertical: "top" }}
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
-          {/* <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleClose}>
             <Avatar /> Profile
           </MenuItem>
           <Divider />
@@ -135,7 +135,7 @@ const Navbar = ({ handleDrawerToggle, drawerWidth }) => {
               <Settings fontSize="small" />
             </ListItemIcon>
             Settings
-          </MenuItem> */}
+          </MenuItem>
           <MenuItem onClick={handleLogout}>
             <ListItemIcon>
               <LogoutIcon fontSize="small" />
