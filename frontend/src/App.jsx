@@ -8,6 +8,8 @@ import Missing from "./components/Missing";
 import Tasks from "./features/tasks/Tasks";
 import Todos from "./features/todos/Todos";
 import Users from "./features/users/Users";
+import Profile from "./features/users/Profile";
+import Settings from "./features/settings/Settings";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
             <Route path="/tasks" element={<Tasks />} />
             <Route path="/todos" element={<Todos />} />
             <Route path="/team-members" element={<Users />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/settings" element={<Settings />}></Route>
           </Route>
         </Route>
         <Route path="*" element={<Missing />} />

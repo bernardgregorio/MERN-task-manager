@@ -11,6 +11,8 @@ const BreadcrumbsNav = () => {
     { todos: "To-Dos" },
     { "team-members": "Team Members" },
     { reports: "Reports" },
+    { profile: "Profile" },
+    { settings: "Settings" },
   ];
 
   return (

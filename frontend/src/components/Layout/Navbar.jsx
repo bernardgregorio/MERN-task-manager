@@ -12,6 +12,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
+import { Link } from "react-router-dom";
 import Settings from "@mui/icons-material/Settings";
 import { Logout as LogoutIcon } from "@mui/icons-material";
 import { useLogout } from "../../features/auth/useLogout";
@@ -127,15 +128,10 @@ const Navbar = ({ handleDrawerToggle, drawerWidth }) => {
           anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         >
           <MenuItem onClick={handleClose}>
-            <Avatar /> Profile
+            <Avatar /> <Link to="/profile">Profile</Link>
           </MenuItem>
           <Divider />
-          <MenuItem onClick={handleClose}>
-            <ListItemIcon>
-              <Settings fontSize="small" />
-            </ListItemIcon>
-            Settings
-          </MenuItem>
+
           <MenuItem onClick={handleLogout}>
             <ListItemIcon>
               <LogoutIcon fontSize="small" />

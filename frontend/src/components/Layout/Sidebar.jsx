@@ -12,6 +12,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import TaskIcon from "@mui/icons-material/Assignment";
 import TodoIcon from "@mui/icons-material/PlaylistAddCheck";
 import TeamIcon from "@mui/icons-material/People";
+import SettingsIcon from "@mui/icons-material/Settings";
 import { Link } from "react-router-dom";
 
 const Sidebar = ({
@@ -26,6 +27,7 @@ const Sidebar = ({
     { name: "Tasks", icon: <TaskIcon />, link: "/tasks" },
     { name: "To-Dos", icon: <TodoIcon />, link: "/todos" },
     { name: "Team Members", icon: <TeamIcon />, link: "/team-members" },
+    { name: "Settings", icon: <SettingsIcon />, link: "/settings" },
   ];
 
   const drawer = (
