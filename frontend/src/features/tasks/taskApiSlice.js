@@ -58,6 +58,18 @@ export const taskApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: (result, error, arg) => [{ type: "Task", id: arg.id }],
     }),
+
+    UploadFile: builder.mutation({
+      query: (file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        return {
+          url: "/api/tasks/upload",
+          method: "POST",
+          body: formData,
+        };
+      },
+    }),
   }),
 });
 
@@ -69,4 +81,5 @@ export const {
   useUpdateTaskByIdMutation,
   usePatchTaskByIdMutation,
   useDeleteTaskByIdMutation,
+  useUploadFileMutation,
 } = taskApiSlice;

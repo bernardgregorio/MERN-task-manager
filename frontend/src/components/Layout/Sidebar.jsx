@@ -32,11 +32,11 @@ const Sidebar = ({
     <Box>
       <Toolbar style={drawerWidth === 60 ? { paddingLeft: "9px" } : {}}>
         <Typography noWrap>
-          <Box
+          <span
             className={`text-lg font-bold ${drawerWidth === 60 ? "text-[12px]" : ""}`}
           >
             {sideBarTitle}
-          </Box>
+          </span>
         </Typography>
       </Toolbar>
 

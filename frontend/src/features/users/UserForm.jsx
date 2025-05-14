@@ -96,7 +96,7 @@ const UserForm = () => {
     <>
       <Dialog
         fullWidth={true}
-        maxWidth="sm"
+        maxWidth="lg"
         open={context.openForm}
         onClose={context.handleCloseForm}
         id="user-form"

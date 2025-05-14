@@ -4,10 +4,13 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import TableChartIcon from "@mui/icons-material/TableChart";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
+import TodoIcon from "@mui/icons-material/PlaylistAddCheck";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import DownloadIcon from "@mui/icons-material/Download";
 
 import {
   useFetchTodosQuery,
@@ -189,21 +192,34 @@ const Todos = () => {
               />
             </Box>
             <Box>
-              <Button
+              <ButtonGroup
                 variant="contained"
-                color="primary"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpenForm(true);
-                  setCat("create");
-                  setRecord({});
-                }}
-                sx={{ textTransform: "none" }}
-                startIcon={<GroupAddIcon />}
+                color="inherit"
+                aria-label="Basic button group"
               >
-                Create Todo
-              </Button>
+                <Button
+                  startIcon={<FileUploadIcon />}
+                  sx={{
+                    borderColor: "!#efefef",
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                  }}
+                >
+                  Upload
+                </Button>
+                <Button
+                  startIcon={<DownloadIcon />}
+                  sx={{
+                    borderColor: "!#efefef",
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                  }}
+                >
+                  Download
+                </Button>
+              </ButtonGroup>
             </Box>
+
             <Box>
               <Stack direction="row" spacing={0.5}>
                 <Button
@@ -216,6 +232,22 @@ const Todos = () => {
                   View
                 </Button>
               </Stack>
+            </Box>
+            <Box>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpenForm(true);
+                  setCat("create");
+                  setRecord({});
+                }}
+                sx={{ textTransform: "none" }}
+                startIcon={<TodoIcon />}
+              >
+                Create Todo
+              </Button>
             </Box>
           </Stack>
           {view ? <BoardView /> : <ListView />}

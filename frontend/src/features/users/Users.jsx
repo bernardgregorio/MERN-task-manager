@@ -7,6 +7,9 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import DownloadIcon from "@mui/icons-material/Download";
 
 import { GlobalContext } from "../../hooks/useContext";
 import {
@@ -203,6 +206,50 @@ const Users = () => {
                 }}
               />
             </Box>
+
+            <Box>
+              <ButtonGroup
+                variant="contained"
+                color="inherit"
+                aria-label="Basic button group"
+              >
+                <Button
+                  startIcon={<FileUploadIcon />}
+                  sx={{
+                    borderColor: "!#efefef",
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                  }}
+                >
+                  Upload
+                </Button>
+                <Button
+                  startIcon={<DownloadIcon />}
+                  sx={{
+                    borderColor: "!#efefef",
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                  }}
+                >
+                  Download
+                </Button>
+              </ButtonGroup>
+            </Box>
+
+            <Box>
+              <Stack direction="row" spacing={0.5}>
+                <Button
+                  onClick={() => handleSetView()}
+                  variant="contained"
+                  color="success"
+                  startIcon={<TableChartIcon />}
+                  sx={{ textTransform: "none" }}
+                >
+                  View
+                </Button>
+              </Stack>
+            </Box>
+
             <Box>
               <Button
                 variant="contained"
@@ -218,19 +265,6 @@ const Users = () => {
               >
                 Create User
               </Button>
-            </Box>
-            <Box>
-              <Stack direction="row" spacing={0.5}>
-                <Button
-                  onClick={() => handleSetView()}
-                  variant="contained"
-                  color="success"
-                  startIcon={<TableChartIcon />}
-                  sx={{ textTransform: "none" }}
-                >
-                  View
-                </Button>
-              </Stack>
             </Box>
           </Stack>
           {view ? <BoardView /> : <ListView />}

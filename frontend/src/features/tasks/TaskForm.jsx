@@ -87,13 +87,14 @@ const TaskForm = () => {
     }
   };
 
+  const handleCloseForm = () => {
+    context.setOpenForm(false);
+    context.setRecord({});
+  };
+
   return (
     <Box>
-      <Dialog
-        open={context.openForm}
-        onClose={context.handleCloseForm}
-        maxWidth="lg"
-      >
+      <Dialog open={context.openForm} onClose={handleCloseForm} maxWidth="lg">
         <DialogTitle>
           {context.cat == "update" ? "Update Task" : "Create Task"}
         </DialogTitle>
@@ -246,7 +247,7 @@ const TaskForm = () => {
             </Grid>
           </DialogContent>
           <DialogActions>
-            <Button onClick={context.handleCloseForm} variant="outlined">
+            <Button onClick={handleCloseForm} variant="outlined">
               Close
             </Button>
             <Button type="submit" variant="contained">

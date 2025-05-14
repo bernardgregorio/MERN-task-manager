@@ -47,7 +47,6 @@ function Layout() {
         <Navbar
           handleDrawerToggle={handleDrawerToggle}
           drawerWidth={drawerWidth}
-          mobileOpen={mobileOpen}
         />
 
         {/* side bar */}

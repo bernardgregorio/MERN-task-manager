@@ -4,10 +4,13 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import TableChartIcon from "@mui/icons-material/TableChart";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
+import DownloadIcon from "@mui/icons-material/Download";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import TaskIcon from "@mui/icons-material/Assignment";
 
 import {
   useFetchTasksQuery,
@@ -26,6 +29,8 @@ import BreadcrumbsNav from "../../components/Layout/BreadcrumbsNav";
 import BoardView from "./BoardView";
 import ListView from "./ListView";
 import TaskForm from "./TaskForm";
+import Upload from "./Upload";
+import Download from "./Download";
 
 const Tasks = () => {
   const [record, setRecord] = useState({});
@@ -37,6 +42,8 @@ const Tasks = () => {
   const [openForm, setOpenForm] = useState(false);
   const { openDialog, ConfirmDialogComponent } = useConfirmDialog();
   const [boardList, setBoardList] = useState([]);
+  const [openUpload, setOpenUpload] = useState(false);
+  const [openDownload, setOpenDownload] = useState(false);
 
   const { data, isError, error, isLoading, isSuccess } = useFetchTasksQuery({
     page,
@@ -58,10 +65,6 @@ const Tasks = () => {
     setPage(1);
     setPageLimit(10);
     setBoardList(boardList.slice(0, 10));
-  };
-  const handleCloseForm = () => {
-    setOpenForm(false);
-    setRecord({});
   };
 
   const handleUpdate = async (data) => {
@@ -141,10 +144,14 @@ const Tasks = () => {
     setCat,
     openForm,
     setOpenForm,
-    handleCloseForm,
     openDialog,
     boardList,
     setBoardList,
+
+    openUpload,
+    setOpenUpload,
+    openDownload,
+    setOpenDownload,
   };
 
   let content;
@@ -185,6 +192,55 @@ const Tasks = () => {
                 }}
               />
             </Box>
+
+            <Box>
+              <ButtonGroup
+                variant="contained"
+                color="inherit"
+                aria-label="Basic button group"
+              >
+                <Button
+                  startIcon={<FileUploadIcon />}
+                  sx={{
+                    borderColor: "!#efefef",
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenUpload(true);
+                  }}
+                >
+                  Upload
+                </Button>
+                <Button
+                  startIcon={<DownloadIcon />}
+                  sx={{
+                    borderColor: "!#efefef",
+                    backgroundColor: "#ffffff",
+                    color: "#000",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenDownload(true);
+                  }}
+                >
+                  Download
+                </Button>
+              </ButtonGroup>
+            </Box>
+
+            <Box>
+              <Button
+                variant="contained"
+                color="success"
+                onClick={() => handleSetView()}
+                sx={{ textTransform: "none" }}
+                startIcon={<TableChartIcon />}
+              >
+                View
+              </Button>
+            </Box>
             <Box>
               <Button
                 variant="contained"
@@ -196,29 +252,18 @@ const Tasks = () => {
                   setRecord({});
                 }}
                 sx={{ textTransform: "none" }}
-                startIcon={<GroupAddIcon />}
+                startIcon={<TaskIcon />}
               >
                 Create Task
               </Button>
-            </Box>
-            <Box>
-              <Stack direction="row" spacing={0.5}>
-                <Button
-                  onClick={() => handleSetView()}
-                  variant="contained"
-                  color="success"
-                  startIcon={<TableChartIcon />}
-                  sx={{ textTransform: "none" }}
-                >
-                  View
-                </Button>
-              </Stack>
             </Box>
           </Stack>
           {view ? <BoardView /> : <ListView />}
           <CustomBackdrop open={isLoading} />
           <ConfirmDialogComponent />
           <TaskForm />
+          <Upload />
+          <Download />
         </Box>
       </GlobalContext.Provider>
     );
