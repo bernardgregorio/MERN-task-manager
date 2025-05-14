@@ -30,6 +30,8 @@ import BreadcrumbsNav from "../../components/Layout/BreadcrumbsNav";
 import BoardView from "./BoardView";
 import ListView from "./ListView";
 import TodoForm from "./TodoForm";
+import Upload from "./Upload";
+import Download from "./Download";
 
 const Todos = () => {
   const [record, setRecord] = useState({});
@@ -41,6 +43,8 @@ const Todos = () => {
   const [openForm, setOpenForm] = useState(false);
   const { openDialog, ConfirmDialogComponent } = useConfirmDialog();
   const [boardList, setBoardList] = useState([]);
+  const [openUpload, setOpenUpload] = useState(false);
+  const [openDownload, setOpenDownload] = useState(false);
 
   const { data, isError, error, isLoading, isSuccess } = useFetchTodosQuery({
     page,
@@ -63,10 +67,6 @@ const Todos = () => {
     setPage(1);
     setPageLimit(10);
     setBoardList(boardList.slice(0, 10));
-  };
-  const handleCloseForm = () => {
-    setOpenForm(false);
-    setRecord({});
   };
 
   const handleUpdate = async (data) => {
@@ -147,10 +147,15 @@ const Todos = () => {
     setCat,
     openForm,
     setOpenForm,
-    handleCloseForm,
+
     openDialog,
     boardList,
     setBoardList,
+
+    openUpload,
+    setOpenUpload,
+    openDownload,
+    setOpenDownload,
   };
 
   let content;
@@ -204,6 +209,10 @@ const Todos = () => {
                     backgroundColor: "#ffffff",
                     color: "#000",
                   }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenUpload(true);
+                  }}
                 >
                   Upload
                 </Button>
@@ -213,6 +222,10 @@ const Todos = () => {
                     borderColor: "!#efefef",
                     backgroundColor: "#ffffff",
                     color: "#000",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenDownload(true);
                   }}
                 >
                   Download
@@ -254,6 +267,8 @@ const Todos = () => {
           <CustomBackdrop open={isLoading} />
           <ConfirmDialogComponent />
           <TodoForm />
+          <Upload />
+          <Download />
         </Box>
       </GlobalContext.Provider>
     );
