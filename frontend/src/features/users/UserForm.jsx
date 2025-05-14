@@ -92,13 +92,18 @@ const UserForm = () => {
     }
   };
 
+  const handleCloseForm = () => {
+    context.setOpenForm(false);
+    context.setRecord({});
+  };
+
   return (
     <>
       <Dialog
         fullWidth={true}
         maxWidth="lg"
         open={context.openForm}
-        onClose={context.handleCloseForm}
+        onClose={handleCloseForm}
         id="user-form"
         className="font-roboto"
       >
@@ -342,7 +347,7 @@ const UserForm = () => {
             </Grid>
           </DialogContent>
           <DialogActions>
-            <Button onClick={context.handleCloseForm} variant="outlined">
+            <Button onClick={handleCloseForm} variant="outlined">
               Close
             </Button>
             <Button type="submit" variant="contained">

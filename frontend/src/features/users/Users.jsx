@@ -28,6 +28,8 @@ import BreadcrumbsNav from "../../components/Layout/BreadcrumbsNav";
 import BoardView from "./BoardView";
 import ListView from "./ListView";
 import UserForm from "./UserForm";
+import Upload from "./Upload";
+import Download from "./Download";
 
 const Users = () => {
   const [record, setRecord] = useState({});
@@ -39,6 +41,8 @@ const Users = () => {
   const [openForm, setOpenForm] = useState(false);
   const { openDialog, ConfirmDialogComponent } = useConfirmDialog();
   const [boardList, setBoardList] = useState([]);
+  const [openUpload, setOpenUpload] = useState(false);
+  const [openDownload, setOpenDownload] = useState(false);
 
   const { data, isError, error, isLoading, isSuccess } = useFetchUsersQuery({
     page,
@@ -59,10 +63,6 @@ const Users = () => {
     setPage(1);
     setPageLimit(10);
     setBoardList(boardList.slice(0, 10));
-  };
-  const handleCloseForm = () => {
-    setOpenForm(false);
-    setRecord({});
   };
 
   const handleUpdate = async (data) => {
@@ -161,11 +161,14 @@ const Users = () => {
     setCat,
     openForm,
     setOpenForm,
-    handleCloseForm,
     openDialog,
-
     boardList,
     setBoardList,
+
+    openUpload,
+    setOpenUpload,
+    openDownload,
+    setOpenDownload,
   };
 
   let content;
@@ -220,6 +223,10 @@ const Users = () => {
                     backgroundColor: "#ffffff",
                     color: "#000",
                   }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenUpload(true);
+                  }}
                 >
                   Upload
                 </Button>
@@ -229,6 +236,10 @@ const Users = () => {
                     borderColor: "!#efefef",
                     backgroundColor: "#ffffff",
                     color: "#000",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpenDownload(true);
                   }}
                 >
                   Download
@@ -271,6 +282,8 @@ const Users = () => {
           <CustomBackdrop open={isLoading} />
           <ConfirmDialogComponent />
           <UserForm />
+          <Upload />
+          <Download />
         </Box>
       </GlobalContext.Provider>
     );
