@@ -71,3 +71,7 @@ This boilerplate leverages the following technologies:
 
   - Prepopulate the database with sample tasks, todos, and team members.
   - Seed script for initial setup and testing.
+
+## Public
+
+- Visit [tms.bernardev.com](https://tms.bernardev.com) to experience the full capabilities of the Task Management System.
