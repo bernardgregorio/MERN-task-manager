@@ -80,26 +80,6 @@ class AuthController {
     res.status(200).json({ token: accessToken });
   }
 
-  async googleAuth(req, res, next) {
-    logger.info("Google Auth");
-  }
-
-  async googleAuthCB(req, res, next) {
-    logger.info("Google Callback");
-
-    const user = req.user;
-
-    const verifyToken = jwt.sign(
-      { id: user._id, username: user.username },
-      process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: "3m" }
-    );
-
-    createCookie("verifyToken", verifyToken, 60 * 1000, res);
-
-    res.status(200).redirect(`http://localhost:5173/google`);
-  }
-
   async verifyToken(req, res, next) {
     logger.info("Google Verify");
 
