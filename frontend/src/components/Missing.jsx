@@ -5,7 +5,7 @@ const Missing = () => {
   return (
     <main className="w-full min-h-screen flex flex-col justify-center items-center font-roboto">
       <h1 className="text-4xl text-center">
-        <span className="text-9xl text-red-700 text italic">404</span> Not Found
+        <span className="text-9x">404</span> Not Found
       </h1>
       <p className="text-2xl text-center my-10">
         The page you are looking for does not exist.
