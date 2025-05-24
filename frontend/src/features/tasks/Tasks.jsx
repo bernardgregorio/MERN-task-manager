@@ -30,7 +30,6 @@ import BoardView from "./BoardView";
 import ListView from "./ListView";
 import TaskForm from "./TaskForm";
 import Upload from "./Upload";
-import Download from "./Download";
 
 const Tasks = () => {
   const [record, setRecord] = useState({});
@@ -212,20 +211,6 @@ const Tasks = () => {
                   }}
                 >
                   Upload
-                </Button>
-                <Button
-                  startIcon={<DownloadIcon />}
-                  sx={{
-                    borderColor: "!#efefef",
-                    backgroundColor: "#ffffff",
-                    color: "#000",
-                  }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setOpenDownload(true);
-                  }}
-                >
-                  Download
                 </Button>
               </ButtonGroup>
             </Box>
