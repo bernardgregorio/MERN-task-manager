@@ -11,7 +11,7 @@ This boilerplate leverages the following technologies:
 - Redux Toolkit – State management for handling authentication and global app state.
 - Tailwind CSS – Utility-first CSS framework for efficient and responsive styling.
 - TanStack Table – Advanced table component for dynamic data display, in-cell editing, and CRUD operations.
-- Material UI – UI component library for building modern and accessible forms.
+- ShadCN – Component library for building modern and accessible forms with Tailwind CSS.
 - React Hook Form – Lightweight library for form handling and validation.
 - Yup – Schema validation library for enforcing form validation rules.
 - Docker – Containerized deployment for a consistent and scalable development environment.
@@ -25,12 +25,12 @@ This boilerplate leverages the following technologies:
 - Token Expiry Handling
 - Global State Management with Redux
 - Tailwind CSS for efficient and reusable styling.
-- Material UI components for intuitive and accessible forms.
+- ShadCN components for intuitive and accessible forms.
 - CRUD Operations with TanStack Table
   - Dynamic Data Table: Display, search, and filter data efficiently.
   - In-Cell Editing: Editable cells supporting direct text input and selection-based options.
   - Add, Edit & Delete Users:
-    - Forms built with Material UI, React Hook Form, and Yup validation.
+    - Forms built with ShadCN, React Hook Form, and Yup validation.
     - Client-side validation with Yup schema enforcement.
     - Form submission with React Hook Form for optimized performance.
     - Seamless integration with Redux for state updates.
@@ -69,8 +69,17 @@ This boilerplate leverages the following technologies:
 
 - Database Seeding:
 
-  - Prepopulate the database with sample tasks, todos, and team members.
-  - Seed script for initial setup and testing.
+  - The database can be prepopulated with sample tasks, todos, and team members for testing and initial setup.
+  - To seed the database, follow these steps:
+    1. Navigate to the backend directory in your terminal:
+       ```bash
+       cd backend
+       ```
+    2. Run the seed script using Node.js:
+       ```bash
+       node seed/index.js
+       ```
+  - This will populate the database with predefined sample data, ensuring a ready-to-use environment for development and testing.
 
 ## Public
 
